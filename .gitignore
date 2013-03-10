@@ -25,3 +25,5 @@ dist
 .project
 .classpath
 .settings
+
+.target

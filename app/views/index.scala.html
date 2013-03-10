@@ -1,91 +1,142 @@
-@(things:List[Thing],form:Form[String])
+@(things:List[Thing])
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title></title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width">
+<meta charset="utf-8" />
+<title>Batzator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="" />
 
-<link rel="stylesheet" href="/assets/stylesheets/normalize.min.css">
-<link rel="stylesheet" href="/assets/stylesheets/main.css">
+<!-- Le styles -->
+<link href="/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="/assets/css/batzator.css" rel="stylesheet" />
 
-<script
-	src="/assets/javascripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+<!-- Fav and touch icons -->
+<!-- 
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="/assets/ico/apple-touch-icon-144-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="/assets/ico/apple-touch-icon-114-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="/assets/ico/apple-touch-icon-72-precomposed.png" />
+<link rel="apple-touch-icon-precomposed"
+	href="/assets/ico/apple-touch-icon-57-precomposed.png" />
+<link rel="shortcut icon" href="/assets/ico/favicon.png" />
+ -->
 </head>
+
 <body>
-	<!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
 
-	<div class="header-container">
-		<header class="wrapper clearfix">
-			<h1 class="title">
-				<strong>Bat</strong>zator
-			</h1>
-			<nav>
-				<ul>
-					<li><a href="#">Fulano de tal</a></li>
-				</ul>
-			</nav>
-		</header>
-	</div>
-
-	<div class="main-container">
-		<div class="main wrapper clearfix">
-			<aside>
-				<h3>Name something</h3>
-				
-				<textarea rows="5"></textarea>
-			</aside>
-			
-			
-			@things.map {	thing =>		
-			<article>
-				<header>
-					<h1>Skype</h1>
-				</header>
-				<section>
-					<p>A voice over ip capable comunications program.</p>
-					<section>
-						<h1></h1>
-					</section>
-				</section> 
-				<footer>
-					<p>Like this name? [Yes] [No] [Irrelevant] see other suggestions...</p>
-				</footer>
-			</article>
-			}
-			
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="brand" href="/">Batzator</a>
+				<div class="nav-collapse collapse">
+					<p class="navbar-text pull-right">
+						Logged in as <a href="#" class="navbar-link">Username</a>
+					</p>
+					<!-- 
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					 -->
+				</div>
+				<!--/.nav-collapse -->
+			</div>
 		</div>
-		<!-- #main -->
 	</div>
-	<!-- #main-container -->
 
-	<div class="footer-container">
-		<footer class="wrapper">
-			<h3>By Craftware</h3>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				<div class="well sidebar">
+					<form>
+						<fieldset>
+							<legend>Encontre um bom nome</legend>
+							<label>O que quer nomear? (quanto mais específico, melhor)</label>
+							<textarea rows="4">Meu novo cão de estimação, um pequeno poodle macho branco.</textarea> 
+							<label>Dê algumas sugestões inciais</label>
+							<textarea rows="4">Fifi, Banana
+Monstrão 
+Nietzsche								
+							</textarea>	
+							<button type="submit" class="btn">Enviar</button>
+						</fieldset>
+					</form>
+				</div>
+				<!--/.well -->
+			</div>
+			<!--/span-->
+			<div class="span9">
+				<div class="hero-unit">
+					<h1>Encontre um bom nome!</h1>
+					<p>E ajude quem está procurando também, dizendo o que acha dos
+						nomes abaixo.</p>
+					<p>
+						<a href="#" class="btn btn-primary btn-large">OK, entendi!</a>
+					</p>
+				</div>
+				@for(block <- 1 to 2){
+				<div class="row-fluid">
+					@for(block <- 1 to 3){
+					<div class="span4">
+						<h2>Heading</h2>
+						<p>Donec id elit non mi porta gravida at eget metus. Fusce
+							dapibus, tellus ac cursus commodo, tortor mauris condimentum
+							nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+							malesuada magna mollis euismod. Donec sed odio dui.</p>
+						<p>
+							<a class="btn btn-success" href="#">Curti</a>
+							<a class="btn btn-warning unselected" href="#">Indiferente</a>
+							<a class="btn btn-danger unselected" href="#">Não gostei</a>
+						</p>
+					</div>
+					<!--/span-->
+					}
+				</div>
+				<!--/row-->
+				}
+
+
+			</div>
+			<!--/span-->
+		</div>
+		<!--/row-->
+
+		<hr>
+
+		<footer>
+			<p>Craftware 2013</p>
 		</footer>
+
 	</div>
+	<!--/.fluid-container-->
 
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="/assets/javascripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- 
+	<script src="http://code.jquery.com/jquery.js"></script>
+	-->
+	<script src="/assets/js/jquery.js"></script>
+	<script src="/assets/js/bootstrap.js"></script>
 
-	<script src="/assets/javascripts/main.js"></script>
 
-	<script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
 </body>
 </html>
