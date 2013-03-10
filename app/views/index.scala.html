@@ -1,4 +1,4 @@
-@(things:List[Thing])
+@(things:List[Thing],form:Form[String])
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -42,11 +42,12 @@
 		<div class="main wrapper clearfix">
 			<aside>
 				<h3>Name something</h3>
-				<p>
-					<input type="text"></input>
-				</p>
+				
+				<textarea rows="5"></textarea>
 			</aside>
-			@things.map {	=>		
+			
+			
+			@things.map {	thing =>		
 			<article>
 				<header>
 					<h1>Skype</h1>
@@ -56,9 +57,9 @@
 					<section>
 						<h1></h1>
 					</section>
-				</section>
+				</section> 
 				<footer>
-					<p>Like this name? [Yes] [No] see other suggestions...</p>
+					<p>Like this name? [Yes] [No] [Irrelevant] see other suggestions...</p>
 				</footer>
 			</article>
 			}

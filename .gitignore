@@ -20,3 +20,8 @@ target
 tmp
 dist
 .cache
+
+#Eclipse files
+.project
+.classpath
+.settings
