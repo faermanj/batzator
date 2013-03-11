@@ -3,7 +3,7 @@
 # --- !Ups
 
 CREATE TABLE Thing (
-    uuid char(36) NOT NULL,
+    uuid char(36) not null primary key,
     code varchar(255),
     description text
 );

@@ -1,142 +1,35 @@
-@(things:List[Thing])
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<title>Batzator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-
-<!-- Le styles -->
-<link href="/assets/css/bootstrap.css" rel="stylesheet" />
-<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet" />
-<link href="/assets/css/batzator.css" rel="stylesheet" />
-
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="/assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-<!-- Fav and touch icons -->
-<!-- 
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="/assets/ico/apple-touch-icon-144-precomposed.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="/assets/ico/apple-touch-icon-114-precomposed.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="/assets/ico/apple-touch-icon-72-precomposed.png" />
-<link rel="apple-touch-icon-precomposed"
-	href="/assets/ico/apple-touch-icon-57-precomposed.png" />
-<link rel="shortcut icon" href="/assets/ico/favicon.png" />
- -->
-</head>
-
-<body>
-
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse"
-					data-target=".nav-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="brand" href="/">Batzator</a>
-				<div class="nav-collapse collapse">
-					<p class="navbar-text pull-right">
-						Logged in as <a href="#" class="navbar-link">Username</a>
-					</p>
-					<!-- 
-					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-					 -->
-				</div>
-				<!--/.nav-collapse -->
-			</div>
+@main {
+<div class="row-fluid">
+	<div class="span3">
+		<div class="well sidebar">
+			<form>
+				<fieldset>
+					<legend>Encontre um bom nome</legend>
+					<label>O que quer nomear? (quanto mais detalhes, melhor)</label>
+					<textarea id="txtDescription" rows="4">Meu novo gatinho de estimação.</textarea>
+					<label>Dê algumas sugestões inciais</label>
+					<textarea id="txtNames" rows="4">Kiwi, Banana
+Rizoma
+Monstrão
+Nietzsche
+							</textarea>
+					<button id="btnSendNames" type="button" class="btn btn btn-primary">Enviar</button>
+				</fieldset>
+			</form>
 		</div>
+		<!--/.well -->
 	</div>
+	<!--/span-->
+	<div class="span9" id="divNames"></div>
+	<!--/span-->
+</div>
+<!--/row-->
 
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span3">
-				<div class="well sidebar">
-					<form>
-						<fieldset>
-							<legend>Encontre um bom nome</legend>
-							<label>O que quer nomear? (quanto mais específico, melhor)</label>
-							<textarea rows="4">Meu novo cão de estimação, um pequeno poodle macho branco.</textarea> 
-							<label>Dê algumas sugestões inciais</label>
-							<textarea rows="4">Fifi, Banana
-Monstrão 
-Nietzsche								
-							</textarea>	
-							<button type="submit" class="btn">Enviar</button>
-						</fieldset>
-					</form>
-				</div>
-				<!--/.well -->
-			</div>
-			<!--/span-->
-			<div class="span9">
-				<div class="hero-unit">
-					<h1>Encontre um bom nome!</h1>
-					<p>E ajude quem está procurando também, dizendo o que acha dos
-						nomes abaixo.</p>
-					<p>
-						<a href="#" class="btn btn-primary btn-large">OK, entendi!</a>
-					</p>
-				</div>
-				@for(block <- 1 to 2){
-				<div class="row-fluid">
-					@for(block <- 1 to 3){
-					<div class="span4">
-						<h2>Heading</h2>
-						<p>Donec id elit non mi porta gravida at eget metus. Fusce
-							dapibus, tellus ac cursus commodo, tortor mauris condimentum
-							nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-							malesuada magna mollis euismod. Donec sed odio dui.</p>
-						<p>
-							<a class="btn btn-success" href="#">Curti</a>
-							<a class="btn btn-warning unselected" href="#">Indiferente</a>
-							<a class="btn btn-danger unselected" href="#">Não gostei</a>
-						</p>
-					</div>
-					<!--/span-->
-					}
-				</div>
-				<!--/row-->
-				}
+<hr>
 
-
-			</div>
-			<!--/span-->
-		</div>
-		<!--/row-->
-
-		<hr>
-
-		<footer>
-			<p>Craftware 2013</p>
-		</footer>
-
-	</div>
-	<!--/.fluid-container-->
-
-	<!-- Le javascript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<!-- 
-	<script src="http://code.jquery.com/jquery.js"></script>
-	-->
-	<script src="/assets/js/jquery.js"></script>
-	<script src="/assets/js/bootstrap.js"></script>
-
-
-</body>
-</html>
+<footer>
+	<p>Craftware 2013</p>
+</footer>
+}{
+	<script src='@routes.Assets.at("javascripts/index.js")'></script> 
+}

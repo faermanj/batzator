@@ -2,9 +2,20 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index
-POST 	/things						controllers.Batzator.newThing
+# POH5 GUI
+GET    /                         controllers.Application.index
+GET	   /thing/:code				 controllers.Batzator.thing(code:String)
+
+# JSON API
+POST   /names/new                controllers.Batzator.newNames
+GET    /names                    controllers.Batzator.allNames
+
+POST   /name/:uuid/like			 controllers.Batzator.likeName(uuid:String)
+POST   /name/:uuid/indifferent	 controllers.Batzator.indifferentName(uuid:String)
+POST   /name/:uuid/dislike	     controllers.Batzator.dislikeName(uuid:String)
+
+GET    /thing/:uuid/names		 controllers.Batzator.namesOf(uuid:String)
+POST   /thing/:uuid/names		 controllers.Batzator.addNames(uuid:String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file            controllers.Assets.at(path="/public", file)

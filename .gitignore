@@ -25,5 +25,8 @@ dist
 .project
 .classpath
 .settings
+#Intellij
+*.iml
+.idea
 
 .target

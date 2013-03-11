@@ -4,7 +4,8 @@ import java.util.UUID
 
 case class Thing(uuid: String, code: String, description: String)
 
-object Thing {
+object Thing extends Model{
+
   import anorm._
   import anorm.SqlParser._
 
@@ -18,19 +19,32 @@ object Thing {
         case uuid ~ code ~ description => Thing(uuid, code, description)
       }
   }
-
+ 
+  
   def all(): List[Thing] = DB.withConnection { implicit c =>
     SQL("select * from Thing").as(thing *)
   }
 
-  def create(code:String,description:String) {
+  def byCode(code:String): Option[Thing] = DB.withConnection { implicit c =>
+    SQL("select * from Thing where code={code}")
+    	.on('code -> code)
+    	.as(thing.singleOpt)    	
+  }
+
+  def create(description: String) = {
+    val uuid = randomUUID
+    val code = uuid
     DB.withConnection { implicit c =>
       SQL("insert into Thing (uuid,code,description) values ({uuid},{code},{description})").on(
-        'uuid -> UUID.randomUUID.toString,
+        'uuid -> uuid,
         'code -> code,
         'description -> description).executeUpdate()
     }
+    Thing(uuid, code, description)
   }
+
+
+
 
   def delete(uuid: String) {
     DB.withConnection { implicit c =>
@@ -38,6 +52,8 @@ object Thing {
         'uuid -> uuid).executeUpdate()
     }
   }
+  
+ 
 
 }
 
